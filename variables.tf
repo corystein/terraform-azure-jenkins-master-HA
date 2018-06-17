@@ -28,6 +28,7 @@ variable "config" {
     "container_name"       = "vhds"
 
     # Load Balancer settings
+    "lb_ip_dns_name" = ""
 
     # Virtual Machine settings
     "jenkins_master_primary_vmname"       = "TESTJENMSTVM001"

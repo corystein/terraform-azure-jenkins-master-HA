@@ -37,11 +37,11 @@ echo "Successfully disabled SELINUX"
 ####################################################################
 # Install Java
 ####################################################################
-echo "Installing Java..."
+#echo "Installing Java..."
 # https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
-yum install -y java-1.8.0-openjdk
-java -version
-echo "Successfully installed Java"
+#yum install -y java-1.8.0-openjdk
+#java -version
+#echo "Successfully installed Java"
 ####################################################################
 
 ####################################################################

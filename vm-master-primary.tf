@@ -1,3 +1,10 @@
+resource "azurerm_public_ip" "jenkins_master_primary_pip" {
+  name                         = "Jenkins_Public_IP"
+  location                     = "${azurerm_resource_group.res_group.location}"
+  resource_group_name          = "${azurerm_resource_group.res_group.name}"
+  public_ip_address_allocation = "static"
+}
+
 resource "azurerm_network_interface" "jenkins_master_primary_nic" {
   name                = "${var.config["jenkins_master_primrary_nic"]}"
   resource_group_name = "${azurerm_resource_group.res_group.name}"
@@ -7,8 +14,10 @@ resource "azurerm_network_interface" "jenkins_master_primary_nic" {
     name = "ipconfig1"
 
     #private_ip_address_allocation = "static"
-    private_ip_address_allocation = "dynamic"
-    subnet_id                     = "${azurerm_subnet.subnet1.id}"
+    private_ip_address_allocation           = "dynamic"
+    subnet_id                               = "${azurerm_subnet.subnet1.id}"
+    public_ip_address_id                    = "${azurerm_public_ip.jenkins_master_primary_pip.id}"
+    load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.jenkins_lb_backend.id}"]
 
     #private_ip_address            = "${var.config["jenkins_master_primary_ip_address"]}"
   }
@@ -70,7 +79,7 @@ resource "azurerm_virtual_machine_extension" "jenkins_terraform" {
 
   settings = <<SETTINGS
   {
-          "fileUris": ["https://raw.githubusercontent.com/corystein/terraform-azure-jenkins-ha/master/scripts/jenkinsInstall.sh"],
+          "fileUris": ["https://raw.githubusercontent.com/corystein/terraform-azure-jenkins-master-HA/master/scripts/jenkinsInstall.sh"],
           "commandToExecute": "sh jenkinsInstall.sh"
       }
 SETTINGS

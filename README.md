@@ -57,3 +57,27 @@ Disk:
 
     - OS Disk : 128GB
     - Data Disk : 512GB
+
+## Jenkins
+The following is some details of the jenkins installation
+
+Internal Port: 8080
+
+Default User/Password:
+```
+User: admin
+Password: admin
+```
+
+Plugins:
+```
+git
+github
+blueocean
+terraform
+ssh-agent
+mailer
+greenballs
+oic-auth
+credentials
+```
