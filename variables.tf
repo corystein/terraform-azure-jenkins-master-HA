@@ -16,19 +16,24 @@ variable "config" {
     "security_group_name" = "TEST-NSG-JEN-001"
 
     # Network settings
-    "vnet_name"                     = "TEST-VNT-JEN-001"
-    "vnet_address_range"            = "10.199.10.0/24"
-    "subnet_name"                   = "TEST-SNT-JEN-001"
-    "subnet_address_range"          = "10.199.10.16/28"
-    "network_public_ipaddress_name" = "jenkins-lb-pip"
+    "vnet_name"            = "TEST-VNT-JEN-001"
+    "vnet_address_range"   = "10.199.10.0/24"
+    "subnet_name"          = "TEST-SNT-JEN-001"
+    "subnet_address_range" = "10.199.10.16/28"
+
     "network_public_ipaddress_type" = "static"
 
     # Storage Account settings
     "storage_account_name" = "teststgactjen001"
     "container_name"       = "vhds"
+    "share_name"           = "hashare"
 
     # Load Balancer settings
+    "lb_pip_name"    = "jenkins-lb-pip"
     "lb_ip_dns_name" = ""
+
+    # Availablity Set settings
+    "avail_set_name" = "jenkins_avail_set"
 
     # Virtual Machine settings
     "jenkins_master_primary_vmname"       = "TESTJENMSTVM001"

@@ -14,3 +14,11 @@ resource "azurerm_storage_container" "jenkins_cont" {
   storage_account_name  = "${azurerm_storage_account.jenkins_storage.name}"
   container_access_type = "private"
 }
+
+resource "azurerm_storage_share" "jenkins_share" {
+  name                 = "${var.config["share_name"]}"
+  resource_group_name  = "${azurerm_resource_group.res_group.name}"
+  storage_account_name = "${azurerm_storage_account.jenkins_storage.name}"
+
+  #container_access_type = "private"
+}
