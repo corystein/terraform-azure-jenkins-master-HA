@@ -25,6 +25,7 @@ The following table describes the terraform files and their purpose.
 | storage.tf       | Contains storage account settings     |
 | vm-master-primary.tf       | Jenkins master virtual machine (Primary)     |
 | vm-master-secondary.tf       | Jenkins master virtual machine (Secondary)     |
+| lb.tf       | Load balancer     |
 
 Note: variables.tf should be customized for your specific settings
 
