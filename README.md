@@ -81,3 +81,9 @@ greenballs
 oic-auth
 credentials
 ```
+
+## Links
+
+https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/examples/2-vms-loadbalancer-lbrules/main.tf
+https://terraform.io
+https://jenkins.io

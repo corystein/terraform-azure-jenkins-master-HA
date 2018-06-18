@@ -18,6 +18,7 @@ resource "azurerm_network_interface" "jenkins_master_primary_nic" {
     subnet_id                               = "${azurerm_subnet.subnet1.id}"
     public_ip_address_id                    = "${azurerm_public_ip.jenkins_master_primary_pip.id}"
     load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.jenkins_lb_backend.id}"]
+    load_balancer_inbound_nat_rules_ids     = ["${azurerm_lb_rule.lb_rule.id}"]
 
     #private_ip_address            = "${var.config["jenkins_master_primary_ip_address"]}"
   }
