@@ -7,7 +7,7 @@ resource "azurerm_public_ip" "jenkins_loadbalancer_publicip" {
 
   #public_ip_address_allocation = "static"
 
-  #domain_name_label            = "${var.lb_ip_dns_name}"
+  #domain_name_label            = "${var.config["lb_ip_dns_name"]}"
 }
 
 resource "azurerm_lb" "jenkins_lb" {

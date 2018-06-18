@@ -20,7 +20,7 @@ variable "config" {
     "vnet_address_range"            = "10.199.10.0/24"
     "subnet_name"                   = "TEST-SNT-JEN-001"
     "subnet_address_range"          = "10.199.10.16/28"
-    "network_public_ipaddress_name" = "jenkins-publicIP"
+    "network_public_ipaddress_name" = "jenkins-lb-pip"
     "network_public_ipaddress_type" = "static"
 
     # Storage Account settings

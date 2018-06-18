@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "jenkins_master_primary_pip" {
-  name                         = "Jenkins_Public_IP"
+  name                         = "jenkins-master-pip"
   location                     = "${azurerm_resource_group.res_group.location}"
   resource_group_name          = "${azurerm_resource_group.res_group.name}"
   public_ip_address_allocation = "static"
