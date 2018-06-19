@@ -27,8 +27,17 @@ resource "azurerm_lb_backend_address_pool" "jenkins_lb_backend" {
   loadbalancer_id     = "${azurerm_lb.jenkins_lb.id}"
 }
 
-/*
-resource "azurerm_lb_rule" "lb_rule" {
+resource "azurerm_lb_probe" "lb_probe" {
+  resource_group_name = "${azurerm_resource_group.res_group.name}"
+  loadbalancer_id     = "${azurerm_lb.jenkins_lb.id}"
+  name                = "tcpProbe"
+  protocol            = "tcp"
+  port                = 8080
+  interval_in_seconds = 5
+  number_of_probes    = 2
+}
+
+resource "azurerm_lb_rule" "lb_http_rule" {
   resource_group_name            = "${azurerm_resource_group.res_group.name}"
   loadbalancer_id                = "${azurerm_lb.jenkins_lb.id}"
   name                           = "LBRule"
@@ -43,14 +52,13 @@ resource "azurerm_lb_rule" "lb_rule" {
   depends_on                     = ["azurerm_lb_probe.lb_probe"]
 }
 
-resource "azurerm_lb_probe" "lb_probe" {
-  resource_group_name = "${azurerm_resource_group.res_group.name}"
-  loadbalancer_id     = "${azurerm_lb.jenkins_lb.id}"
-  name                = "tcpProbe"
-  protocol            = "tcp"
-  port                = 80
-  interval_in_seconds = 5
-  number_of_probes    = 2
+resource "azurerm_lb_nat_rule" "lb_ssh_rule" {
+  resource_group_name            = "${azurerm_resource_group.res_group.name}"
+  loadbalancer_id                = "${azurerm_lb.jenkins_lb.id}"
+  name                           = "SSH-VM-01"
+  protocol                       = "tcp"
+  frontend_port                  = "50001"
+  backend_port                   = 22
+  frontend_ip_configuration_name = "jenkins_lb_frontend"
+  count                          = 2
 }
-*/
-
