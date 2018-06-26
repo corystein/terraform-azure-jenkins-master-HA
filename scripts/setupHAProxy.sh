@@ -3,8 +3,7 @@
 #Script Name	:  setupHAProxy.sh                                                                                            
 #Description	:  Configure Jenkins master with HA Proxy                                                                              
 #Args           :  None                                                                                          
-#Author         :  Cory R. Stein                                                
-#Email          :  cory.r.stein@pwc.com                                           
+#Author         :  Cory R. Stein                                                  
 ###################################################################
 
 echo "Executing [$0]..."
