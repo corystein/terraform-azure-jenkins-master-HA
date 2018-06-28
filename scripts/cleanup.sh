@@ -3,8 +3,7 @@
 #Script Name	:  cleanup.sh                                                                                            
 #Description	:  Clean up files and folders                                                                              
 #Args           :  None                                                                                          
-#Author         :  Cory R. Stein                                                
-#Email          :  cory.r.stein@pwc.com                                           
+#Author         :  Cory R. Stein                                                  
 ###################################################################
 
 echo "Executing [$0]..."
